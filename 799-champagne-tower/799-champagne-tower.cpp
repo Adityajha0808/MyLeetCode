@@ -12,7 +12,6 @@ public:
                 }
             }
         }
-        if(dp[row][glass] < 1.0) return dp[row][glass];
-        return 1.0;
+        return (dp[row][glass] < 1.0 ? dp[row][glass] : 1.0);
     }
 };
