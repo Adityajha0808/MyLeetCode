@@ -1,9 +1,8 @@
 class Solution {
 public:
     vector<int> minSubsequence(vector<int>& a) {
-        int n = a.size();
         sort(a.begin(), a.end());
-        int sum = accumulate(a.begin(), a.end(), 0), curr = 0, i;
+        int n = a.size(), sum = accumulate(a.begin(), a.end(), 0), curr = 0, i;
         for(i=n-1; i>=0; --i) {
             if(a[i] + curr > sum - a[i] - curr) break;
             curr += a[i];
