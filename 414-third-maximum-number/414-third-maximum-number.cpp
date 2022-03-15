@@ -2,13 +2,13 @@ class Solution {
 public:
     int thirdMax(vector<int>& a) {
         int n = a.size();
-        sort(a.begin(), a.end(), greater<int>());
-        int cnt = 1;
-        for(int i=1; i<n; ++i) {
-            if(a[i] == a[i-1]) continue;
-            cnt++;
-            if(cnt == 3) return a[i];
+        set<int> s;
+        for(int i=0; i<n; ++i) {
+            s.insert(a[i]);
+            if(s.size() > 3) {
+                s.erase(s.begin());
+            }
         }
-        return a[0];
+        return (s.size() < 3 ? *s.rbegin() : *s.begin());
     }
 };
