@@ -17,11 +17,12 @@ public:
         return res;
     }
     int minDeletions(string s) {
-        unordered_map<char,int> mp;
-        for(auto i: s) mp[i]++;
-        int res = 0;
+        set<char> st;
+        for(auto i: s) st.insert(i);
         vector<int> freq;
-        for(auto i: mp) freq.push_back(i.second);
+        for(auto i: st) {
+            freq.push_back(count(s.begin(), s.end(), i));
+        }
         return min_ops(freq);
     }
 };
