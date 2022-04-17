@@ -24,8 +24,8 @@ public:
         if(k > count) k %= count;
         while(k--) {
             while(p->next) {
-            q = p;
-            p = p->next;
+                q = p;
+                p = p->next;
             }
             q->next = NULL;
             p->next = head;
