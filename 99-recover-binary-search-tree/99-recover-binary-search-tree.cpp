@@ -11,25 +11,24 @@
  */
 class Solution {
 public:
-    vector<int> v;
-    int i=0;
-    void func(TreeNode* root) {
+    void func(TreeNode* root, TreeNode*& p, TreeNode*& l, TreeNode*& r) {
         if(root) {
-           v.push_back(root->val);
-           func(root->left);
-           func(root->right);
-        }
-    }
-    void func2(TreeNode* root) {
-        if(root) {
-           func2(root->left);
-           root->val = v[i++];
-           func2(root->right);
+            func(root->left, p, l, r);
+            if(p) {
+                if(root->val < p->val) {
+                    if(!l) l = p;
+                    r = root;
+                }
+            }
+            p = root;
+            func(root->right, p, l, r);
         }
     }
     void recoverTree(TreeNode* root) {
-        func(root);
-        sort(v.begin(), v.end());
-        func2(root);
+        TreeNode* p = NULL;
+        TreeNode* l = NULL;
+        TreeNode* r = NULL;
+        func(root, p, l, r);
+        swap(l->val, r->val);
     }
 };
