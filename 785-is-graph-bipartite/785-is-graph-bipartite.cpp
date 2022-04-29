@@ -3,7 +3,7 @@ private:
     vector<bool> visited;
     vector<int> c;
 public:
-    Solution() : visited(101, false), c(101, 0) {}
+    Solution() : visited(100, false), c(100, 0) {}
     bool dfs(int idx, int start, vector<vector<int>>& a) {
         visited[idx] = true;
         c[idx] = start;
