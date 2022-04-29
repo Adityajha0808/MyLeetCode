@@ -1,7 +1,9 @@
 class Solution {
+private:
+    vector<bool> visited;
+    vector<int> c;
 public:
-    bool visited[101];
-    int c[101];
+    Solution() : visited(101, false), c(101, 0) {}
     bool dfs(int idx, int start, vector<vector<int>>& a) {
         visited[idx] = true;
         c[idx] = start;
@@ -18,8 +20,6 @@ public:
     }
     bool isBipartite(vector<vector<int>>& a) {
         int n = a.size();
-        memset(visited, false, n);
-        memset(c, 0, n);
         for(int i=0; i<n; ++i)
             if(!visited[i] and !dfs(i,0,a))
                 return false;
