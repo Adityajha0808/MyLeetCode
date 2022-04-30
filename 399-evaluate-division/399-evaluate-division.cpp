@@ -1,9 +1,8 @@
 class Solution {
-private:
+public:
     unordered_map<string, vector<pair<string, double>>> adj;
     unordered_map<string, bool> visited;
     double x;
-public:
     bool dfs(string start, string end, double p) {
         if(start == end and adj.find(start) != adj.end()) {
             x = p;
