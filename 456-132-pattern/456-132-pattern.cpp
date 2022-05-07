@@ -1,13 +1,13 @@
 class Solution {
 public:
     bool find132pattern(vector<int>& a) {
-        int n = a.size(), maxm = INT_MIN;
+        int n = a.size(), sec = INT_MIN;
         stack<int> st;
         for(int i=n-1; i>=0; --i) {
-            if(a[i] < maxm) return true;
+            if(a[i] < sec) return true;
             else {
                 while(st.size() and a[i] > st.top()) {
-                    maxm = st.top();
+                    sec = st.top();
                     st.pop();
                 }
             }
