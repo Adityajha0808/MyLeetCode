@@ -23,14 +23,12 @@ public:
     void func(NestedInteger i) {
         if(i.isInteger())
             a.push_back(i.getInteger());
-        else {
+        else
             for(auto &&j : i.getList())
                 func(j);
-        }
     }
     NestedIterator(vector<NestedInteger>& list) {
-        for(int i=0; i<list.size(); ++i)
-            func(list[i]);
+        for(auto i: list) func(i);
     }
     
     int next() {
