@@ -16,28 +16,19 @@ public:
         }
         if(n == 1) {
             for(auto i: a[0]) {
-                string curr = "";
-                curr.push_back(i);
-                res.push_back(curr);
+                res.push_back(string(1,i));
             }
         } else if(n == 2) {
             for(auto i: a[0]) {
                 for(auto j: a[1]) {
-                    string curr = "";
-                    curr.push_back(i);
-                    curr.push_back(j);
-                    res.push_back(curr);
+                    res.push_back(string(1,i) + j);
                 }
             }
         } else if(n == 3) {
             for(auto i: a[0]) {
                 for(auto j: a[1]) {
                     for(auto k: a[2]) {
-                        string curr = "";
-                        curr.push_back(i);
-                        curr.push_back(j);
-                        curr.push_back(k);
-                        res.push_back(curr);
+                        res.push_back(string(1,i) + j + k);
                     }
                 }
             }
@@ -46,12 +37,7 @@ public:
                 for(auto j: a[1]) {
                     for(auto k: a[2]) {
                         for(auto l: a[3]) {
-                            string curr = "";
-                            curr.push_back(i);
-                            curr.push_back(j);
-                            curr.push_back(k);
-                            curr.push_back(l);
-                            res.push_back(curr);
+                            res.push_back(string(1,i) + j + k + l);
                         }
                     }
                 }
