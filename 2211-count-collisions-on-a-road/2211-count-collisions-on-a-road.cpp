@@ -16,7 +16,7 @@ public:
                 res++;
             }
         }
-        for(int i=n-2; ~i; --i) {
+        for(int i=n-2; i>=0; --i) {
             if(s[i] == 'R' and s[i+1] == 'S') {
                 res++;
                 s[i] = 'S';
