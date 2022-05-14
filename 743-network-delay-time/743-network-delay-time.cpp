@@ -10,10 +10,9 @@ public:
             pq.pop();
             if(time > v[node]) continue;
             for(auto i: adj[node]) {
-                int time2 = i.first, node2 = i.second;
-                if(v[node2] > time + time2) {
-                    v[node2] = time + time2;
-                    pq.push({v[node2], node2});
+                if(v[i.second] > time + i.first) {
+                    v[i.second] = time + i.first;
+                    pq.push({v[i.second], i.second});
                 }
             }
         }
