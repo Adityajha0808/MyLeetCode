@@ -1,10 +1,10 @@
 class Solution {
 public:
+    int time = 0;
     void h(int u, vector<bool>& vi, vector<int>& disc, vector<int>& low, vector<int>& parent, vector<vector<int>>& g, vector<vector<int>>& res) {
-        static int time = 0;
         vi[u] = true;
-        disc[u] = low[u] = ++time;
-        for (int v : g[u]) {
+        disc[u] = low[u] = time++;
+        for(auto v : g[u]) {
             if (!vi[v]) {
                 parent[v] = u;
                 h(v, vi, disc, low, parent, g, res);
