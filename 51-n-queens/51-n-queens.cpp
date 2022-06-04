@@ -1,6 +1,6 @@
 class Solution {
 public:
-    void func(vector<vector<string>>& res, vector<string>& nQueens, vector<int>& flag, int row, int& n) {
+    void func(vector<vector<string>>& res, vector<string>& nQueens, vector<int>& flag, int row, int n) {
         if(row == n) {
             res.push_back(nQueens);
             return;
