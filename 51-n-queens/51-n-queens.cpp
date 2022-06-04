@@ -5,14 +5,15 @@ public:
             res.push_back(nQueens);
             return;
         }
-        for (int col = 0; col != n; ++col)
-            if (flag[col] && flag[n + row + col] && flag[4 * n - 2 + col - row]) {
+        for(int col = 0; col!=n; ++col) {
+            if(flag[col] && flag[n + row + col] && flag[4 * n - 2 + col - row]) {
                 flag[col] = flag[n + row + col] = flag[4 * n - 2 + col - row] = 0;
                 nQueens[row][col] = 'Q';
                 func(res, nQueens, flag, row + 1, n);
                 nQueens[row][col] = '.';
                 flag[col] = flag[n + row + col] = flag[4 * n - 2 + col - row] = 1;
             }
+        }
     }
     vector<vector<string>> solveNQueens(int n) {
         vector<vector<string>> res;
