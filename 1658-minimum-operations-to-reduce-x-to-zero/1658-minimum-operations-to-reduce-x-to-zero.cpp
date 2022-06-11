@@ -7,9 +7,8 @@ public:
         mp.insert({0,-1});
         for(int i=0; i<n; ++i) {
             sum += a[i];
-            if(mp.find(sum - k) != mp.end()) {
+            if(mp.find(sum - k) != mp.end())
                 cnt = max(cnt, i - mp.find(sum - k)->second);
-            }
             mp.insert({sum, i});
         }
         return (cnt == INT_MIN ? -1 : n - cnt);
