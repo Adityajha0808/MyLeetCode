@@ -1,11 +1,11 @@
 class Solution {
 public:
     int longestStrChain(vector<string>& a) {
-        int n = a.size(), res = 1;
-        unordered_map<string, int> mp;
         sort(a.begin(), a.end(), [](string& l, string& r) {
             return l.size() < r.size();
         });
+        unordered_map<string, int> mp;
+        int res = 1;
         for(auto i: a) {
             mp[i] = 1;
             for(int j=0; j<i.size(); ++j) {
