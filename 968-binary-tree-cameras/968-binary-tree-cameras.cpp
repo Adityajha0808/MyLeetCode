@@ -17,7 +17,7 @@ public:
         if(root) {
             func(root->left, root);
             func(root->right, root);
-            if(p == NULL and st.find(root) == st.end() or st.find(root->left) == st.end() or st.find(root->right) == st.end()) {
+            if(!p and st.find(root) == st.end() or st.find(root->left) == st.end() or st.find(root->right) == st.end()) {
                 cams++;
                 st.insert(root);
                 st.insert(p);
