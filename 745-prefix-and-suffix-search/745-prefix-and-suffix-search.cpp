@@ -25,7 +25,10 @@ public:
     }
     
     int f(string pre, string suf) {
-        return (mp.count(pre) ? (mp[pre].count(suf) > 0 ? mp[pre][suf] : -1) : -1);
+        if(mp.count(pre)) {
+            return (mp[pre].count(suf) > 0 ? mp[pre][suf] : -1);
+        }
+        return -1;
     }
 };
 
