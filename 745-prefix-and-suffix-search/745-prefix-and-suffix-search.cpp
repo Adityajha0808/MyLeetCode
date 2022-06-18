@@ -25,9 +25,8 @@ public:
     }
     
     int f(string pre, string suf) {
-        if(mp.count(pre) and mp[pre].count(suf) > 0) {
+        if(mp.count(pre) and mp[pre].count(suf) > 0)
             return mp[pre][suf];
-        }
         return -1;
     }
 };
