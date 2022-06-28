@@ -1,8 +1,12 @@
 class Solution {
 public:
-    int min_ops(vector<int>& a) {
-        int n = a.size(), res = 0;
+    int minDeletions(string s) {
+        unordered_map<char,int> mp;
+        for(auto i: s) mp[i]++;
+        vector<int> a;
+        for(auto i: mp) a.push_back(i.second);
         sort(a.begin(), a.end());
+        int n = a.size(), res = 0;
         for(int i=n-2; ~i; --i) {
             if(a[i] >= a[i+1]) {
                 if(a[i+1] == 0) {
@@ -15,14 +19,5 @@ public:
             }
         }
         return res;
-    }
-    int minDeletions(string s) {
-        set<char> st;
-        for(auto i: s) st.insert(i);
-        vector<int> freq;
-        for(auto i: st) {
-            freq.push_back(count(s.begin(), s.end(), i));
-        }
-        return min_ops(freq);
     }
 };
