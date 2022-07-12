@@ -13,15 +13,11 @@ public:
         }
         return false;
     }
-    bool canPartitionKSubsets(vector<int>& a, int k) {
-        int n = a.size(), sum = 0;
-        if(k == 1) return true;
-        for(auto i: a) sum += i;
-        if(sum%k) return false;
-        vector<int> v(n, 0);
-        return func(a, v, 0, 0, k, sum/k);
-    }
     bool makesquare(vector<int>& a) {
-        return canPartitionKSubsets(a, 4);
+        int n = a.size(), sum = 0;
+        for(auto i: a) sum += i;
+        if(sum % 4) return false;
+        vector<int> v(n, 0);
+        return func(a, v, 0, 0, 4, sum/4);
     }
 };
