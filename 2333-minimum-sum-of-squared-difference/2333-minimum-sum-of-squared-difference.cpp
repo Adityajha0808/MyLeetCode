@@ -16,23 +16,19 @@ public:
         while(pq.size() and k > 0) {
             auto tmp = pq.top();
             pq.pop();
+            int minus = min(k, tmp.second);
+            k -= minus;
+            tmp.second -= minus;
             if(pq.size()) {
-                int minus = min(k, tmp.second);
-                k -= minus;
-                tmp.second -= minus;
                 if(tmp.second) pq.push(tmp);
                 if(pq.top().first == tmp.first - 1) {
                     auto tmp2 = pq.top();
                     pq.pop();
                     tmp2.second += minus;
                     pq.push(tmp2);
-                } else if(tmp.first - 1 > 0) {
+                } else if(tmp.first - 1 > 0)
                     pq.push({tmp.first - 1, minus});
-                }
             } else {
-                int minus = min(k, tmp.second);
-                k -= minus;
-                tmp.second -= minus;
                 if(tmp.first - 1 > 0)
                     pq.push({tmp.first - 1, minus});
                 if(tmp.second) pq.push(tmp);
