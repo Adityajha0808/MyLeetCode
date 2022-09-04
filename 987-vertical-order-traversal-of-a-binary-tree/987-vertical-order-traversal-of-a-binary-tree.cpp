@@ -27,10 +27,10 @@ public:
             if(node->right)
                 todo.push({node->right, {x + 1, y + 1}});
         }
-        for(auto p : nodes){
+        for(auto i: nodes){
             vector<int> col;
-            for(auto i : p.second)
-                col.insert(col.end(), i.second.begin(), i.second.end());
+            for(auto j: i.second)
+                col.insert(col.end(), j.second.begin(), j.second.end());
             res.push_back(col);
         }
         return res;
