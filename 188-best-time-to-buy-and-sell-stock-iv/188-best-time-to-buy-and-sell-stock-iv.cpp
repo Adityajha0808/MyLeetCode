@@ -8,7 +8,7 @@ public:
                 res += max(0, a[i] - a[i - 1]);
             return res;
         }
-        vector<int> dp1(k + 1, INT_MIN), dp2(k + 1, 0);
+        vector<int> dp1(k+1, INT_MIN), dp2(k+1, 0);
         for(auto& i : a) {
             for(int j=1; j<=k; ++j) {
                 dp1[j] = max(dp1[j], dp2[j - 1] - i);
