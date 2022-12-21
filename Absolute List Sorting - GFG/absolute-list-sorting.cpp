@@ -47,17 +47,19 @@ class Solution{
     
 public:
     Node* sortList(Node* head) {
-        vector<int> a;
         Node* p = head;
-        while(p) {
-            a.push_back(p->data);
-            p = p->next;
-        }
-        sort(a.begin(), a.end());
-        p = head;
-        for(auto i: a) {
-            p->data = i;
-            p = p->next;
+        Node* q = head->next;
+        while(p and q) {
+            if(p->data > q->data) {
+                Node* r = q;
+                q = q->next;
+                p->next = q;
+                r->next = head;
+                head = r;
+            } else {
+                p = p->next;
+                q = q->next;
+            }
         }
         return head;
     }
