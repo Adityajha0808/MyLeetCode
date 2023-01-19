@@ -19,22 +19,18 @@ class Solution{
             a /= 2;
             res1++;
         }
-        if((ll)a * b > (ll)c * d) {
-            while(b > d) {
-                b /= 2;
-                res1++;
-            }
+        while(b > d) {
+            b /= 2;
+            res1++;
         }
         a = A, b = B, c = C, d = D;
         while(b > c) {
             b /= 2;
             res2++;
         }
-        if((ll)a * b > (ll)c * d) {
-            while(a > d) {
-                a /= 2;
-                res2++;
-            }
+        while(a > d) {
+            a /= 2;
+            res2++;
         }
         return min(res1, res2);
     }
