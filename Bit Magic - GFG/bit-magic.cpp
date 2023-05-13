@@ -30,8 +30,7 @@ public:
 // } Driver Code Ends
 class Solution {
   public:
-    int bitMagic(int n, vector<int>& a) {
-        int res = 0;
+    int bitMagic(int n, vector<int>& a, int res = 0) {
         for(int i=0; i<n/2; ++i) if(a[i] != a[n-1-i]) res++;
         return (res + 1)/2;
     }
